@@ -117,6 +117,10 @@ else
     export _GLIBCXX_USE_CXX11_ABI=0
 fi
 
+if [[ -n "$JAVA_HOME" ]] ; then
+    EXTRA_CAFFE2_CMAKE_FLAGS+=("-DJAVA_HOME=$JAVA_HOME" -DBUILD_JNI=1)
+fi
+
 echo "Calling setup.py bdist at $(date)"
 time CMAKE_ARGS=${CMAKE_ARGS[@]} \
      EXTRA_CAFFE2_CMAKE_FLAGS=${EXTRA_CAFFE2_CMAKE_FLAGS[@]} \
