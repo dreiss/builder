@@ -4,7 +4,7 @@ trigger: none
 pr: none
 
 jobs:
-- template: templates/auth_task.yml
+# - template: templates/auth_task.yml
 
   #- template: templates/build_task.yml
   #  parameters:
