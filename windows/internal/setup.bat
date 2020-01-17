@@ -44,6 +44,14 @@ mkdir libtorch\test
 
 mkdir build
 pushd build
+
+:: Build JNI bindings with libtorch builds
+mkdir fake_java_home
+mkdir fake_java_home\include
+copy ..\.circleci\docker\java\jni.h fake_java_home\include
+set JAVA_HOME=%CD%\fake_java_home
+set BUILD_JNI=ON
+
 python ../tools/build_libtorch.py
 popd
 
